@@ -1,0 +1,1 @@
+ C:\\Users\\ziore\\e_commerce_app\\.dart_tool\\flutter_build\\e6637a1b82c71cf202a73d89f06cf939\\native_assets.yaml: 
