@@ -1,6 +1,7 @@
 //PACKAGE IMPORTS
 const express = require("express");
 const bcypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 //LOCAL IMPORTS
 const User = require("../models/User");
@@ -27,6 +28,29 @@ authRouter.post("/api/signup", async (req, res) => {
     let user = new User({ name, email, password: hashedPassword });
     user = await user.save();
     res.status(201).json({ message: "User created successfully" });
+  } catch (err) {
+    res.status(500).json({ err: `Internal Server Error ${err.message}` });
+  }
+});
+
+authRouter.post("/api/login", async (req, res) => {
+  const { email, password } = req.body;
+  console.log(`Email: ${email}, Password: ${password}`);
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ msg: "User does not exist" });
+    } else {
+      const isMatch = await bcypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ msg: "Invalid credentials" });
+      }
+      const token = jwt.sign({ userId: user._id }, "PasswordKey", {
+        expiresIn: "1h",
+      });
+      res.status(200).json({ token, ...user._doc });
+    }
   } catch (err) {
     res.status(500).json({ err: `Internal Server Error ${err.message}` });
   }

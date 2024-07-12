@@ -9,7 +9,6 @@ class User {
   final String password;
   final String address;
   final String role;
-  final DateTime createAt;
   final String? token;
 
   User({
@@ -19,7 +18,6 @@ class User {
     required this.password,
     required this.address,
     required this.role,
-    required this.createAt,
     this.token,
   });
 
@@ -31,7 +29,6 @@ class User {
       'password': password,
       'address': address,
       'role': role,
-      'createAt': createAt.millisecondsSinceEpoch,
       'token': token,
     };
   }
@@ -44,7 +41,6 @@ class User {
       password: map['password'] ?? '',
       address: map['address'] ?? '',
       role: map['role'] ?? '',
-      createAt: map['createdAt'] ?? '',
       token: map['token'] ?? '',
     );
   }

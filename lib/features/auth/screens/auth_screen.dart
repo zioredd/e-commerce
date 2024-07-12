@@ -43,7 +43,13 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 
-  void signinUser() {}
+  void signinUser() {
+    authService.signinUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +113,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                         const SizedBox(height: 10),
                         CustomButton(
-                          text: _auth == Auth.signup ? 'Sign Up' : 'Sign In',
+                          text: 'Sign Up',
                           color: GlobalVariables.secondaryColor,
                           onTap: () {
                             if (_signUpFormKey.currentState!.validate()) {
@@ -163,7 +169,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           color: GlobalVariables.secondaryColor,
                           onTap: () {
                             if (_signInFormKey.currentState!.validate()) {
-                              signupUser();
+                              signinUser();
                             }
                           },
                         )
