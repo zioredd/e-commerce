@@ -2,6 +2,7 @@
 const express = require("express");
 const bcypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const auth = require("../middlewares/auth");
 
 //LOCAL IMPORTS
 const User = require("../models/User");
@@ -51,6 +52,37 @@ authRouter.post("/api/login", async (req, res) => {
       });
       res.status(200).json({ token, ...user._doc });
     }
+  } catch (err) {
+    res.status(500).json({ err: `Internal Server Error ${err.message}` });
+  }
+});
+
+authRouter.post("/tokenIsValid", (req, res) => {
+  try {
+    const token = req.header("x-auth-token");
+    if (!token) return res.json(false);
+
+    const verified = jwt.verify(token, "PasswordKey");
+    if (!verified) return res.json(false);
+
+    //check if the user exists
+    const user = User.findById(verified.userId);
+    if (!user) return res.json(false);
+
+    return res.json(true);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ err: `Internal Server Error, catch block ${err.message}` });
+  }
+});
+
+// get user data
+
+authRouter.get("/", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user);
+    res.status(200).json({ ...user._doc, token: req.token });
   } catch (err) {
     res.status(500).json({ err: `Internal Server Error ${err.message}` });
   }
