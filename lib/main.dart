@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/common/widgets/bottom_bar.dart';
 import 'package:e_commerce_app/constants/global_variables.dart';
 import 'package:e_commerce_app/features/auth/screens/auth_screen.dart';
 import 'package:e_commerce_app/features/auth/screens/home_screen.dart';
@@ -48,7 +49,7 @@ class _MyAppState extends State<MyApp> {
       ),
       onGenerateRoute: (setting) => generateRoute(setting),
       home: Provider.of<UserProvider>(context).user.token!.isNotEmpty
-          ? const HomeScreen()
+          ? const BottomBar()
           : const AuthScreen(),
     );
   }

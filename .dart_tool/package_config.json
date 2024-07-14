@@ -8,6 +8,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "badges",
+      "rootUri": "file:///C:/Users/ziore/AppData/Local/Pub/Cache/hosted/pub.dev/badges-3.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/ziore/AppData/Local/Pub/Cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -39,9 +45,15 @@
     },
     {
       "name": "dio",
-      "rootUri": "file:///C:/Users/ziore/AppData/Local/Pub/Cache/hosted/pub.dev/dio-5.4.3+1",
+      "rootUri": "file:///C:/Users/ziore/AppData/Local/Pub/Cache/hosted/pub.dev/dio-5.5.0+1",
       "packageUri": "lib/",
-      "languageVersion": "2.15"
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "dio_web_adapter",
+      "rootUri": "file:///C:/Users/ziore/AppData/Local/Pub/Cache/hosted/pub.dev/dio_web_adapter-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "fake_async",
@@ -69,7 +81,7 @@
     },
     {
       "name": "flutter_lints",
-      "rootUri": "file:///C:/Users/ziore/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-3.0.2",
+      "rootUri": "file:///C:/Users/ziore/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-4.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     },
@@ -117,9 +129,9 @@
     },
     {
       "name": "lints",
-      "rootUri": "file:///C:/Users/ziore/AppData/Local/Pub/Cache/hosted/pub.dev/lints-3.0.0",
+      "rootUri": "file:///C:/Users/ziore/AppData/Local/Pub/Cache/hosted/pub.dev/lints-4.0.0",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.1"
     },
     {
       "name": "matcher",
@@ -308,7 +320,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-07-12T12:16:09.838410Z",
+  "generated": "2024-07-14T12:25:50.391942Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///C:/utils/flutter",
